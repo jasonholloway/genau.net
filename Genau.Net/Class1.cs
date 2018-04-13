@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using System.Linq.Expressions;
 using System.Runtime.InteropServices.ComTypes;
 
-namespace Genau.Net
+namespace Genau
 {
     public class Adapted<T>
     {

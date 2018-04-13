@@ -3,10 +3,10 @@ using Xunit;
 using Shouldly;
 using System.Collections.Generic;
 using System.Linq;
-using static Genau.Net.Gen2;
+using static Genau.Gen2;
 using static System.Linq.Enumerable;
 
-namespace Genau.Net
+namespace Genau
 {
     public class GenTests
     {
