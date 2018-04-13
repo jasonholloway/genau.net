@@ -19,8 +19,8 @@ namespace Genau
 
             [Fact]  //should test per contextual seed
             public void IsDeterministic()
-                => Run().ShouldBe(Run());
-
+                => WithSeed(12, () => Run())
+                    .ShouldBe(WithSeed(12, () => Run()));
 
             bool Run() => GenBool();
 
@@ -51,6 +51,10 @@ namespace Genau
 
     public static class Gen2 
     {
+
+        public static V WithSeed<V>(int seed, Func<V> fn) => default(V);
+
+
         public static bool GenBool()
             => new Random().Next(3) > 1;
 
