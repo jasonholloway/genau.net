@@ -12,8 +12,6 @@ namespace Genau.Net
             => null;
     }
 
-
-
     public static class Gen
     {
         //public static Gen<T> From<T>(Expression<Func<T>> fn)
@@ -21,7 +19,7 @@ namespace Genau.Net
         //    return new Gen<T>(null);
         //}
 
-        public static Gen<T> From<T>(T v) => null;
+        public static Gen<T> From<T>(T v) => new Gen<T>(() => default(T));
         public static Gen<T> From<T>(Func<T> fn) => null;
         public static Func<A1, Gen<T>> From<A1, T>(Func<A1, T> fn) => null;
         public static Func<A1, A2, Gen<T>> From<A1, A2, T>(Func<A1, A2, T> fn) => null;
@@ -38,6 +36,7 @@ namespace Genau.Net
         public static Gen<T> Pick<T>(params T[] candidates)
             => null;
         
+	public static bool Hello() => true;
 
         public static void Set<T>(string name, T value) { }
         public static T Get<T>(string name) => default(T);
