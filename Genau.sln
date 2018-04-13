@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26730.12
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genau.Net", "Genau.Net\Genau.Net.csproj", "{B9D0D782-3BAB-4B23-9C5A-A722CDC0D89E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genau", "Genau\Genau.csproj", "{B9D0D782-3BAB-4B23-9C5A-A722CDC0D89E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genau.Net.Test", "Genau.Net.Test\Genau.Net.Test.csproj", "{2032A11A-5C93-4055-9088-45C48263C152}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Genau.Test", "Genau.Test\Genau.Test.csproj", "{2032A11A-5C93-4055-9088-45C48263C152}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
