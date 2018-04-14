@@ -32,7 +32,7 @@ namespace Genau
             bool Run() => GenBool();
 
             IEnumerable<bool> RunMany(int times)
-                => Range(0, times).Select(_ => Run());
+                => GenMany(times, Run);
         }
 
 
@@ -59,7 +59,7 @@ namespace Genau
             int Run() => GenNatural();
 
             IEnumerable<int> RunMany(int times)
-                => Range(0, times).Select(_ => Run()); 
+                => GenMany(times, Run);
         }
 
     }
@@ -81,41 +81,8 @@ namespace Genau
     //Every generator used deterministically (ie with a seed)
     //would be repeatedly called to ensure the identity of its results
 
-    public interface IEagerEnumerable<T> {}
-    public class EagerEnumerable<T> : IEagerEnumerable<T>, IEnumerable<T>, IEnumerator<T>
-    {
-        public T Current => throw new NotImplementedException();
-
-        object IEnumerator.Current => throw new NotImplementedException();
-
-        public void Dispose()
-        {
-            throw new NotImplementedException();
-        }
-
-        public IEnumerator<T> GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-
-        public bool MoveNext()
-        {
-            //the enumerator could capture a seed on its construction, taken from its context
-            //BUT! there's no great way to propagate this seed to successor clauses
-            throw new NotImplementedException();
-        }
-
-        public void Reset()
-        {
-            throw new NotImplementedException();
-        }
-
-        IEnumerator IEnumerable.GetEnumerator()
-        {
-            throw new NotImplementedException();
-        }
-    }
-
+    //
+    //
 
     public static class Gen2 
     {
@@ -133,6 +100,9 @@ namespace Genau
             }
         }
 
+
+        public static IEagerEnumerable<V> GenMany<V>(int count, Func<V> gen)
+            => EagerEnumerable.From(Range(0, count).Select(_ => gen()));
 
         public static bool GenBool()
             => Random.Next(3) > 1;
